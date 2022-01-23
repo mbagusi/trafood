@@ -18,6 +18,7 @@ class CreateFoodBantensTable extends Migration
             $table->string('nama');
             $table->string('jenis');
             $table->integer('harga');
+            $table->string('image');
         });
     }
 

@@ -175,7 +175,7 @@
                             <td>{{$food_banten->nama}}</td>
                             <td>{{$food_banten->jenis}}</td>
                             <td>{{$food_banten->harga}}</td>
-                            <td></td>
+                            <td><img height="30px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt=""></td>
                             <td><a href="#" style="color: white">Edit</a> |
                                 <a href="#" style="color: white">Delete</a>
                             </td>

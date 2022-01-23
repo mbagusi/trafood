@@ -151,7 +151,7 @@
 
                     <h5>Tambah Data Food Banten</h5>
 
-                    <form action="{{ route('admin.store') }}" method="POST">
+                    <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="nama">Nama</label>
@@ -180,6 +180,14 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="form-group">
+                            <label for="image">Gambar Profile</label>
+                            <input type="file" class="form-control-file" id="image" name="image">
+                            @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                           </div>
                      
                         <button type="submit" class="btn btn-hover text-light" style="background-color: #28251f">Submit</button>
                     </form>			
