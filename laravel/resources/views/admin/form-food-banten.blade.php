@@ -59,7 +59,7 @@
             
             <!-- Nav Item - Form -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('food-banten') }}">
+                <a class="nav-link" href="{{ url('form-food-banten') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Banten</span></a>
             </li>
