@@ -39,4 +39,10 @@ class FoodBantenController extends Controller
         $food_bantens = FoodBanten::all();
         return view('admin.form-food-banten',['foods' => $food_bantens]);
     }
+
+    public function edit($foods_nama){
+        $result = FoodBanten::findOrFail($foods_nama);
+        return view('admin.edit-food-banten',['foods' => $result]);
+
+    }
 }

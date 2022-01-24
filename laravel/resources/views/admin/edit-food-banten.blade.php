@@ -146,16 +146,16 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Banten/<b>Tambah Data</b></h1>
+                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Banten/<b>Edit Data</b></h1>
                     </div>
 
-                    <h5>Tambah Data Food Banten</h5>
+                    <h5>Edit Data Food Banten</h5>
 
-                    <form action="{{ route('admin.storeBanten') }}" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Makanan" name="nama"  value="{{ old('nama') }}">
+                            <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Makanan" name="nama"  value="{{ old('nama') ?? $food_banten->nama  }}">
                             @error('nama')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -165,8 +165,8 @@
                             <label for="jenis">Jenis Makanan</label>
                             <select class="form-control" name="jenis" id="jenis">
                                 <option value="" {{ old('jenis')=='' ? 'selected': '' }}>- Pilih Jenis Makanan</option>
-                                <option value="Makanan Ringan" {{ old('jenis')=='Makanan Ringan' ? 'selected': '' }}>Makanan Ringan</option>
-                                <option value="Makanan Berat" {{ old('jenis')=='Makanan Berat' ? 'selected': '' }}>Makanan Berat</option>
+                                <option value="Makanan Ringan" {{ (old('jenis') ?? $food_banten->jenis)== 'Makanan Ringan' ? 'selected': '' }} >Makanan Ringan</option>
+                                <option value="Makanan Berat" {{ (old('jenis') ?? $food_banten->jenis)== 'Makanan Berat' ? 'selected': '' }}>Makanan Berat</option>
                             </select>
                             @error('jenis')
                             <div class="text-danger">{{ $message }}</div>
@@ -175,7 +175,7 @@
                      
                         <div class="form-group">
                             <label for="harga">Harga</label>
-                            <input type="text" id="harga" class="form-control @error('harga') is-invalid @enderror" name="harga" placeholder="Harga Makanan" value="{{ old('harga') }}">
+                            <input type="text" id="harga" class="form-control @error('harga') is-invalid @enderror" name="harga" placeholder="Harga Makanan" value="{{ old('harga') ?? $food_banten->harga  }}">
                             @error('harga')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -183,13 +183,14 @@
 
                         <div class="form-group">
                             <label for="image">Gambar</label>
+                            <br><img height="150px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt="">
                             <input type="file" class="form-control-file" id="image" name="image">
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                            </div>
                      
-                        <button type="submit" class="btn btn-hover text-light" style="background-color: #28251f">Submit</button>
+                        <button type="submit" class="btn btn-hover text-light" style="background-color: #28251f">Update</button>
                     </form>			
                 <!-- /.container-fluid -->
 

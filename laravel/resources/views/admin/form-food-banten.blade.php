@@ -65,19 +65,19 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jabar') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Barat</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jateng') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Tengah</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jatim') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Timur</span></a>
             </li>
@@ -175,8 +175,8 @@
                             <td>{{$food_banten->nama}}</td>
                             <td>{{$food_banten->jenis}}</td>
                             <td>{{$food_banten->harga}}</td>
-                            <td><img height="30px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt=""></td>
-                            <td><a href="#" style="color: white">Edit</a> |
+                            <td><img height="50px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt=""></td>
+                            <td><a href="{{ route('admin.edit',['admin' => $food_banten->nama]) }}" style="color: white">Edit</a> |
                                 <a href="#" style="color: white">Delete</a>
                             </td>
                           </tr>

@@ -58,13 +58,13 @@
 
             
             <!-- Nav Item - Form -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ url('form-food-banten') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Banten</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Barat</span></a>
@@ -146,12 +146,12 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Banten/<b>Tambah Data</b></h1>
+                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Jawa Barat/<b>Tambah Data</b></h1>
                     </div>
 
-                    <h5>Tambah Data Food Banten</h5>
+                    <h5>Tambah Data Food Jabar</h5>
 
-                    <form action="{{ route('admin.storeBanten') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.storeJabar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="nama">Nama</label>

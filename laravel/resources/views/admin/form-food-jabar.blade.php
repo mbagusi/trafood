@@ -58,26 +58,26 @@
 
             
             <!-- Nav Item - Form -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ url('form-food-banten') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Banten</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('form-food-jabar') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Barat</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jateng') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Tengah</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jatim') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Timur</span></a>
             </li>
@@ -146,51 +146,47 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Banten/<b>Tambah Data</b></h1>
+                        <h1 class="h3 mb-0 text-gray-800">Admin/<b>Food Jawa Barat</b></h1>
                     </div>
 
-                    <h5>Tambah Data Food Banten</h5>
+                    <h5>Daftar Food Jabar</h5>
+                    @if (session()->has('pesan'))
+                    <div class="alert alert-success">
+                        {{ session()->get('pesan') }}
+                    </div>
+                    @endif
 
-                    <form action="{{ route('admin.storeBanten') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <label for="nama">Nama</label>
-                            <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Makanan" name="nama"  value="{{ old('nama') }}">
-                            @error('nama')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                     
-                        <div class="form-group">
-                            <label for="jenis">Jenis Makanan</label>
-                            <select class="form-control" name="jenis" id="jenis">
-                                <option value="" {{ old('jenis')=='' ? 'selected': '' }}>- Pilih Jenis Makanan</option>
-                                <option value="Makanan Ringan" {{ old('jenis')=='Makanan Ringan' ? 'selected': '' }}>Makanan Ringan</option>
-                                <option value="Makanan Berat" {{ old('jenis')=='Makanan Berat' ? 'selected': '' }}>Makanan Berat</option>
-                            </select>
-                            @error('jenis')
-                            <div class="text-danger">{{ $message }}</div>
-                             @enderror
-                            </div>
-                     
-                        <div class="form-group">
-                            <label for="harga">Harga</label>
-                            <input type="text" id="harga" class="form-control @error('harga') is-invalid @enderror" name="harga" placeholder="Harga Makanan" value="{{ old('harga') }}">
-                            @error('harga')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
+                    <a class="btn btn-bover text-light" href="{{ url('/create-food-jabar') }}" role="button" style="float: right; background-color: #28251f; margin-bottom: 5px"><i class="bi bi-plus"></i>Tambah Data</a>
+                    <table class="table table-hover text-light" style="background-color: #28251f">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Jenis Makanan</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Gambar</th>
+                            <th scope="col">Aksi</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @forelse ($foods as $food_banten)
+                          <tr>
+                            <th>{{$loop->iteration}}</th>
+                            <td>{{$food_banten->nama}}</td>
+                            <td>{{$food_banten->jenis}}</td>
+                            <td>{{$food_banten->harga}}</td>
+                            <td><img height="50px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt=""></td>
+                            <td><a href="{{ route('admin.edit',['admin' => $food_banten->nama]) }}" style="color: white">Edit</a> |
+                                <a href="#" style="color: white">Delete</a>
+                            </td>
+                          </tr>
+                          @empty
+                        <td colspan="6" class="text-center">Tidak ada data...</td>
+                        @endforelse
+                        </tbody>
+                      </table>
 
-                        <div class="form-group">
-                            <label for="image">Gambar</label>
-                            <input type="file" class="form-control-file" id="image" name="image">
-                            @error('image')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                           </div>
-                     
-                        <button type="submit" class="btn btn-hover text-light" style="background-color: #28251f">Submit</button>
-                    </form>			
+                </div>
                 <!-- /.container-fluid -->
 
             </div>

@@ -64,19 +64,19 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jabar') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Barat</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jateng') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Tengah</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jatim') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Timur</span></a>
             </li>
@@ -145,7 +145,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Admin/Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Admin/<b>Dashboard</b></h1>
                     </div>
 
                     <h5 style="text-align: center; font-weight: bold">Selamat Datang dihalaman Admin Trafoo.id</h5>

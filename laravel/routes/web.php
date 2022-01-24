@@ -47,6 +47,11 @@ Route::get('/login', function () {
 
 Route::get('/form-food-banten', 'FoodBantenController@index')->name('admin.form-banten');
 
+Route::get('/form-food-jabar', 'FoodJabarController@index')->name('admin.form-jabar');
+
+Route::get('/form-food-jateng', 'FoodJatengController@index')->name('admin.form-jateng');
+
+Route::get('/form-food-jatim', 'FoodJatimController@index')->name('admin.form-jatim');
 
 
 Route::get('/login', 'AdminController@index')->name('login.index');
@@ -56,9 +61,25 @@ Route::post('/login', 'AdminController@process')->name('login.process');
 Route::get('/index', function () {
     return view('admin.index');
 });
-Route::get('create-food-banten', 'FoodBantenController@create')->name('admin.create');
-Route::post('/admin', 'FoodBantenController@store')->name('admin.store');
 
-Route::get('/admin', 'StudentController@index')
+Route::get('create-food-jabar', 'FoodJabarController@create')->name('admin.create');
+Route::post('/postjabar', 'FoodJabarController@store')->name('admin.storeJabar');
+
+Route::get('create-food-banten', 'FoodBantenController@create')->name('admin.create');
+Route::post('/postbanten', 'FoodBantenController@store')->name('admin.storeBanten');
+
+Route::get('create-food-jateng', 'FoodJatengController@create')->name('admin.create');
+Route::post('/postjateng', 'FoodJatengController@store')->name('admin.storeJateng');
+
+Route::get('create-food-jatim', 'FoodJatimController@create')->name('admin.create');
+Route::post('/postjatim', 'FoodJatimController@store')->name('admin.storeJatim');
+
+
+Route::get('/admin', 'FoodJabarController@index')
 ->name('admin.index');
 
+Route::get('/admin', 'FoodBantenController@index')
+->name('admin.index');
+
+Route::get('/admin/{admin}/edit-food-banten', 'FoodBantenController@edit')
+->name('admin.edit');
