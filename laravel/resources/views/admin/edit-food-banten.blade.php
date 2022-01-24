@@ -16,7 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <!-- Custom styles for this template-->
     <link href="{{ url('') }}/assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
                 Form
             </div>
 
-            
+
             <!-- Nav Item - Form -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url('form-food-banten') }}">
@@ -150,110 +150,127 @@
                     </div>
 
                     <h5>Edit Data Food Banten</h5>
-
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="nama">Nama</label>
-                            <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Makanan" name="nama"  value="{{ old('nama') ?? $food_banten->nama  }}">
-                            @error('nama')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                    @if (session()->has('pesan'))
+                        <div class="alert alert-success">
+                            {{ session()->get('pesan') }}
                         </div>
-                     
-                        <div class="form-group">
-                            <label for="jenis">Jenis Makanan</label>
-                            <select class="form-control" name="jenis" id="jenis">
-                                <option value="" {{ old('jenis')=='' ? 'selected': '' }}>- Pilih Jenis Makanan</option>
-                                <option value="Makanan Ringan" {{ (old('jenis') ?? $food_banten->jenis)== 'Makanan Ringan' ? 'selected': '' }} >Makanan Ringan</option>
-                                <option value="Makanan Berat" {{ (old('jenis') ?? $food_banten->jenis)== 'Makanan Berat' ? 'selected': '' }}>Makanan Berat</option>
-                            </select>
-                            @error('jenis')
-                            <div class="text-danger">{{ $message }}</div>
-                             @enderror
+                    @endif
+
+                        <form action="{{ route('admin.update', ['id' => $foods->id]) }}" method="POST" enctype="multipart/form-data">
+                            @method('PATCH')
+                            @csrf
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror"
+                                    placeholder="Nama Makanan" name="nama" value="{{ old('nama') ?? $foods->nama }}">
+                                @error('nama')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                     
-                        <div class="form-group">
-                            <label for="harga">Harga</label>
-                            <input type="text" id="harga" class="form-control @error('harga') is-invalid @enderror" name="harga" placeholder="Harga Makanan" value="{{ old('harga') ?? $food_banten->harga  }}">
-                            @error('harga')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
 
-                        <div class="form-group">
-                            <label for="image">Gambar</label>
-                            <br><img height="150px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt="">
-                            <input type="file" class="form-control-file" id="image" name="image">
-                            @error('image')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                           </div>
-                     
-                        <button type="submit" class="btn btn-hover text-light" style="background-color: #28251f">Update</button>
-                    </form>			
-                <!-- /.container-fluid -->
+                            <div class="form-group">
+                                <label for="jenis">Jenis Makanan</label>
+                                <select class="form-control" name="jenis" id="jenis">
+                                    <option value="" {{ old('jenis') == '' ? 'selected' : '' }}>- Pilih Jenis Makanan
+                                    </option>
+                                    <option value="Makanan Ringan"
+                                        {{ (old('jenis') ?? $foods->jenis) == 'Makanan Ringan' ? 'selected' : '' }}>
+                                        Makanan Ringan</option>
+                                    <option value="Makanan Berat"
+                                        {{ (old('jenis') ?? $foods->jenis) == 'Makanan Berat' ? 'selected' : '' }}>
+                                        Makanan Berat</option>
+                                </select>
+                                @error('jenis')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="harga">Harga</label>
+                                <input type="text" id="harga" class="form-control @error('harga') is-invalid @enderror"
+                                    name="harga" placeholder="Harga Makanan"
+                                    value="{{ old('harga') ?? $foods->harga }}">
+                                @error('harga')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image">Gambar</label>
+                                <br><img height="150px" src="{{ url('') }}/{{ $foods->image }}"
+                                    class="rounded" alt="">
+                                <input type="file" class="form-control-file" id="image" name="image">
+                                @error('image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <button type="submit" class="btn btn-hover text-light"
+                                style="background-color: #28251f">Update</button>
+                        </form>
+                        <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
+            <!-- End of Content Wrapper -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ url('') }}/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="{{ url('') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="{{ url('') }}/assets/vendor/jquery/jquery.min.js"></script>
+        <script src="{{ url('') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ url('') }}/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="{{ url('') }}/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="{{ url('') }}/assets/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="{{ url('') }}/assets/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="{{ url('') }}/assets/vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="{{ url('') }}/assets/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="{{ url('') }}/assets/js/demo/chart-area-demo.js"></script>
-    <script src="{{ url('') }}/assets/js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="{{ url('') }}/assets/js/demo/chart-area-demo.js"></script>
+        <script src="{{ url('') }}/assets/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

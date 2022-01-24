@@ -81,5 +81,5 @@ Route::get('/admin', 'FoodJabarController@index')
 Route::get('/admin', 'FoodBantenController@index')
 ->name('admin.index');
 
-Route::get('/admin/{admin}/edit-food-banten', 'FoodBantenController@edit')
-->name('admin.edit');
+Route::get('/admin/{id}/edit-food-banten', 'FoodBantenController@edit')->name('admin.edit');
+Route::patch('/admin/{id}', 'FoodBantenController@update')->name('admin.update');
