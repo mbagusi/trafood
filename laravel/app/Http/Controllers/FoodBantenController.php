@@ -71,4 +71,12 @@ class FoodBantenController extends Controller
         $request->session()->flash('pesan', 'Update data berhasil');
         return view('admin.edit-food-banten', ['foods' => $food_banten]);
     }
+
+    public function destroy(Request $request, $foods_id)
+    {
+        $result = FoodBanten::find($foods_id);
+        $result->delete();
+        $request->session()->flash('pesan', 'Hapus data berhasil');
+        return redirect()->route('admin.indexBanten');
+    }
 }

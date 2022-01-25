@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Food Banten</title>
+    <title>Edit Food Jawa Barat</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -146,17 +146,17 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Banten/<b>Edit Data</b></h1>
+                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Jabar/<b>Edit Data</b></h1>
                     </div>
 
-                    <h5>Edit Data Food Banten</h5>
+                    <h5>Edit Data Food Jabar</h5>
                     @if (session()->has('pesan'))
                         <div class="alert alert-success">
                             {{ session()->get('pesan') }}
                         </div>
                     @endif
 
-                        <form action="{{ route('admin.updateBanten', ['id' => $foods->id]) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.updateJabar', ['id' => $foods->id]) }}" method="POST" enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="form-group">

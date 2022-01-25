@@ -9,14 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard Admin</title>
+    <title>Data Food Jawa Tengah</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <!-- Custom styles for this template-->
     <link href="{{ url('') }}/assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
                 Form
             </div>
 
-            
+
             <!-- Nav Item - Form -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('form-food-banten') }}">
@@ -151,40 +151,47 @@
 
                     <h5>Daftar Food Jawa Tengah</h5>
                     @if (session()->has('pesan'))
-                    <div class="alert alert-success">
-                        {{ session()->get('pesan') }}
-                    </div>
+                        <div class="alert alert-success">
+                            {{ session()->get('pesan') }}
+                        </div>
                     @endif
 
-                    <a class="btn btn-bover text-light" href="{{ url('/create-food-jateng') }}" role="button" style="float: right; background-color: #28251f; margin-bottom: 5px"><i class="bi bi-plus"></i>Tambah Data</a>
+                    <a class="btn btn-bover text-light" href="{{ url('/create-food-jateng') }}" role="button"
+                        style="float: right; background-color: #28251f; margin-bottom: 5px"><i
+                            class="bi bi-plus"></i>Tambah Data</a>
                     <table class="table table-hover text-light" style="background-color: #28251f">
                         <thead>
-                          <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Jenis Makanan</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Gambar</th>
-                            <th scope="col">Aksi</th>
-                          </tr>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th style="text-align: center" scope="col">Nama</th>
+                                <th style="text-align: center" scope="col">Jenis Makanan</th>
+                                <th style="text-align: center" scope="col">Harga</th>
+                                <th style="text-align: center" scope="col">Gambar</th>
+                                <th style="text-align: center" scope="col">Aksi</th>
+                            </tr>
                         </thead>
                         <tbody>
-                          @forelse ($foods as $food_jateng)
-                          <tr>
-                            <th>{{$loop->iteration}}</th>
-                            <td>{{$food_jateng->nama}}</td>
-                            <td>{{$food_jateng->jenis}}</td>
-                            <td>{{$food_jateng->harga}}</td>
-                            <td><img height="50px" src="{{url('')}}/{{$food_jateng->image}}" class="rounded" alt=""></td>
-                            <td><a href="{{ route('admin.edit',['admin' => $food_jateng->nama]) }}" style="color: white">Edit</a> |
-                                <a href="#" style="color: white">Delete</a>
-                            </td>
-                          </tr>
-                          @empty
-                        <td colspan="6" class="text-center">Tidak ada data...</td>
-                        @endforelse
+                            @forelse ($foods as $food_jateng)
+                                <tr>
+                                    <th>{{ $loop->iteration }}</th>
+                                    <td align="center">{{ $food_jateng->nama }}</td>
+                                    <td align="center">{{ $food_jateng->jenis }}</td>
+                                    <td align="center">{{ $food_jateng->harga }}</td>
+                                    <td align="center"><img height="50px" src="{{ url('') }}/{{ $food_jateng->image }}" class="rounded" alt=""></td>
+                                    <td align="center"><a href="{{ route('admin.editJateng', ['id' => $food_jateng->id]) }}" style="color: white">
+                                            <button type="submit" class="btn btn-success ml-3">Edit
+                                                <form action="{{ route('admin.destroyJateng', ['id' => $food_jateng->id]) }}"    method="POST">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger ml-3">Hapus</button>
+                                                </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <td colspan="6" class="text-center">Tidak ada data...</td>
+                            @endforelse
                         </tbody>
-                      </table>
+                    </table>
 
                 </div>
                 <!-- /.container-fluid -->

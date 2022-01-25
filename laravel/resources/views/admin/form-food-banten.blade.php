@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard Admin</title>
+    <title>Data Food Banten</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -55,7 +55,6 @@
             <div class="sidebar-heading">
                 Form
             </div>
-
             
             <!-- Nav Item - Form -->
             <li class="nav-item active">
@@ -161,23 +160,29 @@
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Jenis Makanan</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Gambar</th>
-                            <th scope="col">Aksi</th>
+                            <th style="text-align: center" scope="col">Nama</th>
+                            <th style="text-align: center" scope="col">Jenis Makanan</th>
+                            <th style="text-align: center" scope="col">Harga</th>
+                            <th style="text-align: center" scope="col">Gambar</th>
+                            <th style="text-align: center" scope="col">Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
                           @forelse ($foods as $food_banten)
                           <tr>
                             <th>{{$loop->iteration}}</th>
-                            <td>{{$food_banten->nama}}</td>
-                            <td>{{$food_banten->jenis}}</td>
-                            <td>{{$food_banten->harga}}</td>
-                            <td><img height="50px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt=""></td>
-                            <td><a href="{{ route('admin.edit',['admin' => $food_banten->nama]) }}" style="color: white">Edit</a> |
-                                <a href="#" style="color: white">Delete</a>
+                            <td align="center">{{$food_banten->nama}}</td>
+                            <td align="center">{{$food_banten->jenis}}</td>
+                            <td align="center">{{$food_banten->harga}}</td>
+                            <td align="center"><img height="50px" src="{{url('')}}/{{$food_banten->image}}" class="rounded" alt=""></td>
+                            <td align="center"><a href="{{ route('admin.editBanten',['id' => $food_banten->id]) }}" style="color: white">
+                                <button type="submit" class="btn btn-success ml-3">Edit
+                                <form action="{{ route('admin.destroyBanten',['id'=>$food_banten->id]) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger ml-3">Hapus</button>
+                                    </form>
+                                    
                             </td>
                           </tr>
                           @empty

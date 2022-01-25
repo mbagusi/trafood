@@ -44,7 +44,7 @@ Route::get('/detail-makanan', function () {
 Route::get('/login', function () {
     return view('login.login');
 });
-
+    
 Route::get('/form-food-banten', 'FoodBantenController@index')->name('admin.form-banten');
 
 Route::get('/form-food-jabar', 'FoodJabarController@index')->name('admin.form-jabar');
@@ -62,24 +62,43 @@ Route::get('/index', function () {
     return view('admin.index');
 });
 
-Route::get('create-food-jabar', 'FoodJabarController@create')->name('admin.create');
-Route::post('/postjabar', 'FoodJabarController@store')->name('admin.storeJabar');
 
 Route::get('create-food-banten', 'FoodBantenController@create')->name('admin.create');
 Route::post('/postbanten', 'FoodBantenController@store')->name('admin.storeBanten');
+Route::get('/adminBanten/{id}/edit-food-banten', 'FoodBantenController@edit')->name('admin.editBanten');
+Route::patch('/adminBanten/{id}', 'FoodBantenController@update')->name('admin.updateBanten');
+Route::delete('/adminBanten/{id}', 'FoodBantenController@destroy')->name('admin.destroyBanten');
+
+Route::get('create-food-jabar', 'FoodJabarController@create')->name('admin.create');
+Route::post('/postjabar', 'FoodJabarController@store')->name('admin.storeJabar');
+Route::get('/adminJabar/{id}/edit-food-jabar', 'FoodJabarController@edit')->name('admin.editJabar');
+Route::patch('/adminJabar/{id}', 'FoodJabarController@update')->name('admin.updateJabar');
+Route::delete('/adminJabar/{id}', 'FoodJabarController@destroy')->name('admin.destroyJabar');
 
 Route::get('create-food-jateng', 'FoodJatengController@create')->name('admin.create');
 Route::post('/postjateng', 'FoodJatengController@store')->name('admin.storeJateng');
+Route::get('/adminJateng/{id}/edit-food-jateng', 'FoodJatengController@edit')->name('admin.editJateng');
+Route::patch('/adminJateng/{id}', 'FoodJatengController@update')->name('admin.updateJateng');
+Route::delete('/adminJateng/{id}', 'FoodJatengController@destroy')->name('admin.destroyJateng');
 
 Route::get('create-food-jatim', 'FoodJatimController@create')->name('admin.create');
 Route::post('/postjatim', 'FoodJatimController@store')->name('admin.storeJatim');
+Route::get('/adminJatim/{id}/edit-food-jatim', 'FoodJatimController@edit')->name('admin.editJatim');
+Route::patch('/adminJatim/{id}', 'FoodJatimController@update')->name('admin.updateJatim');
+Route::delete('/adminJatim/{id}', 'FoodJatimController@destroy')->name('admin.destroyJatim');
 
 
-Route::get('/admin', 'FoodJabarController@index')
-->name('admin.index');
 
-Route::get('/admin', 'FoodBantenController@index')
-->name('admin.index');
+Route::get('/adminJabar', 'FoodJabarController@index')
+->name('admin.indexJabar');
 
-Route::get('/admin/{id}/edit-food-banten', 'FoodBantenController@edit')->name('admin.edit');
-Route::patch('/admin/{id}', 'FoodBantenController@update')->name('admin.update');
+Route::get('/adminBanten', 'FoodBantenController@index')
+->name('admin.indexBanten');
+
+Route::get('/adminJateng', 'FoodJatengController@index')
+->name('admin.indexJateng');
+
+Route::get('/adminJatim', 'FoodJatimController@index')
+->name('admin.indexJatim');
+
+

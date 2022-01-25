@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard Admin</title>
+    <title>Create Food Banten</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -65,19 +65,19 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jabar') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Barat</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jateng') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Tengah</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('form-food-jatim') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Timur</span></a>
             </li>
