@@ -13,25 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index.index');
-});
+Route::get('/', 'IndexController@show')->name('index.index');
 
-Route::get('/food-banten', function () {
-    return view('food.food-banten');
-});
+Route::get('/food-banten', 'FoodBantenController@show')->name('food.bantenShow');
 
-Route::get('/food-jateng', function () {
-    return view('food.food-jateng');
-});
+Route::get('/food-jabar', 'FoodJabarController@show')->name('food.jabarShow');
 
-Route::get('/food-jatim', function () {
-    return view('food.food-jatim');
-});
+Route::get('/food-jateng', 'FoodJatengController@show')->name('food.jatengShow');
 
-Route::get('/food-jabar', function () {
-    return view('food.food-jabar');
-});
+Route::get('/food-jatim', 'FoodJatimController@show')->name('food.jatimShow');
 
 Route::get('/list-kategori', function () {
     return view('kategori.list-kategori');

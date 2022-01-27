@@ -78,4 +78,10 @@ class FoodJatimController extends Controller
         $request->session()->flash('pesan', 'Hapus data berhasil');
         return redirect()->route('admin.indexJatim');
     }
+
+    public function show()
+    {
+        $food_jatims = FoodJatim::all();
+        return view('food.food-jatim', ['foods' => $food_jatims]);
+    }
 }

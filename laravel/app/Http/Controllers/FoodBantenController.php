@@ -79,4 +79,10 @@ class FoodBantenController extends Controller
         $request->session()->flash('pesan', 'Hapus data berhasil');
         return redirect()->route('admin.indexBanten');
     }
+
+    public function show()
+    {
+        $food_bantens = FoodBanten::all();
+        return view('food.food-banten', ['foods' => $food_bantens]);
+    }
 }

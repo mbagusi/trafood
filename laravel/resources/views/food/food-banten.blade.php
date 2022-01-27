@@ -69,13 +69,14 @@
                 <h1 style="margin-top: 130px; font-family: 'Poppins', sans-serif;">Makanan khas <br>Banten</h1>
                 <hr style="color: #CDA45E; width: 10%; margin: 0 auto; height: 3px; margin-bottom: 20px;">
             </div>
+            @forelse ($foods as $food_banten)
             <div class="row" style="margin-top: 20px;">
                 <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
+                    <div class="card" {{$loop->iteration}}>
+                        <img src=" {{url('')}}/{{$food_banten->image}}" class="card-img-top" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
+                            <h5 class="card-title fw-bold">{{$food_banten->nama}}</h5>
+                            <p class="card-text fw-bold">{{$food_banten->harga}}</p>
                             <div class="d-grid gap-2 d-md-block">
                                 <a class="btn btn-secondary" href="detail.html" role="button">Detail</a>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -85,172 +86,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>       
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" >
-                        <img src=" {{ url('') }}/assets/img/klepon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold">Klepon</h5>
-                            <p class="card-text fw-bold">Rp. 26000000</p>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a class="btn btn-secondary" href="index.html" role="button">Detail</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Beli
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @empty
             </div>
+            @endforelse
         </div>
     </section>
     <!--Akhir list Food-->

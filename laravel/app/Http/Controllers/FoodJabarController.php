@@ -78,4 +78,10 @@ class FoodJabarController extends Controller
         $request->session()->flash('pesan', 'Hapus data berhasil');
         return redirect()->route('admin.indexJabar');
     }
-}   
+
+    public function show()
+    {
+        $food_jabars = FoodJabar::all();
+        return view('food.food-jabar', ['foods' => $food_jabars]);
+    }
+}

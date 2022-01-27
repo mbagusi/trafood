@@ -65,8 +65,6 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <form action="#" class="form-box f-right bi bi-search">
-        <input type="text" name="Search" placeholder="    Cari..." style="border-radius: 17px;">
     </div>
     </form>
 
@@ -100,7 +98,7 @@
         <div class="row justify-content-center">
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <a href=" {{ url('food-banten') }}">
+              <a href=" {{ route('food.bantenShow') }}">
               <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
               <h4>Banten</h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
@@ -109,7 +107,7 @@
           </div>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <a href="{{ url('food-jabar') }}">
+              <a href="{{ route('food.jabarShow') }}">
                 <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
                 <h4>Jawa Barat</h4>
                 <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
@@ -118,7 +116,7 @@
           </div>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <a href=" {{ url('food-jateng') }}">
+              <a href=" {{ route('food.jatengShow') }}">
                 <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
                 <h4>Jawa Tengah</h4>
                 <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
@@ -127,7 +125,7 @@
           </div>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <a href=" {{ url('food-jatim') }}">
+              <a href=" {{ route('food.jatimShow') }}">
                 <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
                 <h4>Jawa Timur</h4>
                 <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>

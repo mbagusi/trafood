@@ -77,5 +77,11 @@ class FoodJatengController extends Controller
         $request->session()->flash('pesan', 'Hapus data berhasil');
         return redirect()->route('admin.indexJateng');
     }
+
+    public function show()
+    {
+        $food_jatengs = FoodJateng::all();
+        return view('food.food-jateng', ['foods' => $food_jatengs]);
+    }
     
 }

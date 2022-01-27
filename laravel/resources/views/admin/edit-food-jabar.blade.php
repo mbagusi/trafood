@@ -64,7 +64,7 @@
                     <span>Food Banten</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="{{ url('form-food-jabar') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Barat</span></a>
@@ -76,7 +76,7 @@
                     <span>Food Jawa Tengah</span></a>
             </li>
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ url('form-food-jatim') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Timur</span></a>
