@@ -144,6 +144,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
+                    <a href="{{ route('login.logout') }}" style="color: white" style="float: right;">
+                        <button type="submit" class="btn text-light ml-3" style="float: right; background-color: #28251f"><i class="bi bi-power"></i>Logout</button></a>
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Admin/<b>Food Banten</b></h1>
                     </div>
