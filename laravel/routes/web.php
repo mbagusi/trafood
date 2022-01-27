@@ -52,7 +52,7 @@ Route::get('/index', 'IndexAdminController@index')->name('admin.index')->middlew
 
 
 Route::get('create-food-banten', 'FoodBantenController@create')->name('admin.create')->middleware('login_auth');
-Route::post('/postbanten', 'FoodBantenController@store')->name('admin.storeBanten')->name('admin.create')->middleware('login_auth');
+Route::post('/postbanten', 'FoodBantenController@store')->name('admin.storeBanten')->middleware('login_auth');
 Route::get('/adminBanten/{id}/edit-food-banten', 'FoodBantenController@edit')->name('admin.editBanten')->middleware('login_auth');
 Route::patch('/adminBanten/{id}', 'FoodBantenController@update')->name('admin.updateBanten')->middleware('login_auth');
 Route::delete('/adminBanten/{id}', 'FoodBantenController@destroy')->name('admin.destroyBanten')->middleware('login_auth');
