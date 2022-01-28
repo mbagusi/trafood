@@ -69,9 +69,9 @@
                 <h1 style="margin-top: 130px; font-family: 'Poppins', sans-serif;">Makanan khas <br>Banten</h1>
                 <hr style="color: #CDA45E; width: 10%; margin: 0 auto; height: 3px; margin-bottom: 20px;">
             </div>
-            @forelse ($foods as $food_banten)
             <div class="row" style="margin-top: 20px;">
-                <div class="col">
+                @forelse ($foods as $food_banten)
+                <div class="col">       
                     <div class="card" {{$loop->iteration}}>
                         <img src=" {{url('')}}/{{$food_banten->image}}" class="card-img-top" alt="...">
                         <div class="card-body text-center">
@@ -87,6 +87,7 @@
                     </div>
                 </div>
                 @empty
+                <h4 style="text-align: center; color: white;">Data Tidak Ada...</h4>
             </div>
             @endforelse
         </div>
@@ -113,12 +114,10 @@
       </div>
 
    <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="position: relative;">
     <div class="container">
       <div class="row">
-
-
-
+        
         <div class="container">
           <div class="copyright">
             &copy; 2021 Copyright <strong><span>Trafoo.id</span></strong>. All Rights Reserved

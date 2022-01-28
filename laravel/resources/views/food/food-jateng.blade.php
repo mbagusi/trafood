@@ -69,8 +69,8 @@
                 <h1 style="margin-top: 130px; font-family: 'Poppins', sans-serif;">Makanan khas <br>Jawa Tengah</h1>
                 <hr style="color: #CDA45E; width: 10%; margin: 0 auto; height: 3px; margin-bottom: 20px;">
             </div>
-            @forelse ($foods as $food_jateng)
             <div class="row" style="margin-top: 20px;">
+                @forelse ($foods as $food_jateng)
                 <div class="col">
                     <div class="card" {{$loop->iteration}}>
                         <img src=" {{url('')}}/{{$food_jateng->image}}" class="card-img-top" alt="...">
@@ -81,14 +81,15 @@
                                 <a class="btn btn-secondary" href="detail.html" role="button">Detail</a>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Beli
-                                    </button>
+                                </button>
                             </div>
                         </div>
-                        @empty
                     </div>
-                    @endforelse
                 </div>
+                @empty
+                <h4 style="text-align: center; color: white;">Data Tidak Ada...</h4>
             </div>
+            @endforelse
         </div>
     </section>
     <!--Akhir list Food-->
