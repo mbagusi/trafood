@@ -82,6 +82,33 @@
                 <span>Food Jawa Timur</span></a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.indexRekomendasi') }}">
+                <i class="bi bi-menu-down"></i>
+                <span>Food Rekomendasi</span></a>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Saran
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('form-food-jatim') }}">
+                <i class="bi bi-menu-down"></i>
+                <span>Kritik & Saran</span></a>
+        </li>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Saran
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('form-food-jatim') }}">
+                <i class="bi bi-menu-down"></i>
+                <span>Kritik & Saran</span></a>
+        </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

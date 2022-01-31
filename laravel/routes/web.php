@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@show')->name('index.index');
 
+Route::get('/', 'SaranController@create')->name('saran.saranCreate');
+Route::post('postSaran', 'SaranController@store')->name('saran.saranStore');
+Route::get('/form-saran', 'SaranController@show')->name('saran.saranShow')->middleware('login_auth');
+Route::delete('/adminSaran/{id}', 'SaranController@destroy')->name('admin.destroySaran')->middleware('login_auth');
+
+Route::get('/adduser', 'RegisterAdminController@create')->name('addadmin.create')->middleware('login_auth');
+Route::post('/adduser', 'RegisterAdminController@store') ->name('addadmin.store')->middleware('login_auth');
+
 Route::get('/food-banten', 'FoodBantenController@show')->name('food.bantenShow');
 
 Route::get('/food-jabar', 'FoodJabarController@show')->name('food.jabarShow');
@@ -22,6 +30,8 @@ Route::get('/food-jabar', 'FoodJabarController@show')->name('food.jabarShow');
 Route::get('/food-jateng', 'FoodJatengController@show')->name('food.jatengShow');
 
 Route::get('/food-jatim', 'FoodJatimController@show')->name('food.jatimShow');
+
+
 
 Route::get('/list-kategori', function () {
     return view('kategori.list-kategori');
@@ -75,6 +85,12 @@ Route::get('/adminJatim/{id}/edit-food-jatim', 'FoodJatimController@edit')->name
 Route::patch('/adminJatim/{id}', 'FoodJatimController@update')->name('admin.updateJatim')->middleware('login_auth');
 Route::delete('/adminJatim/{id}', 'FoodJatimController@destroy')->name('admin.destroyJatim')->middleware('login_auth');
 
+Route::get('create-rekomendasi', 'RekomendasiController@create')->middleware('login_auth');
+Route::post('/postrekomendasi', 'RekomendasiController@store')->name('admin.storeRekomendasi')->middleware('login_auth');
+Route::get('/adminRekomendasi/{id}/edit-rekomendasi', 'RekomendasiController@edit')->name('admin.editRekomendasi')->middleware('login_auth');
+Route::patch('/adminRekomendasi/{id}', 'RekomendasiController@update')->name('admin.updateRekomendasi')->middleware('login_auth');
+Route::delete('/adminRekomendasi/{id}', 'RekomendasiController@destroy')->name('admin.destroyRekomendasi')->middleware('login_auth');
+
 
 
 Route::get('/adminJabar', 'FoodJabarController@index')
@@ -88,5 +104,8 @@ Route::get('/adminJateng', 'FoodJatengController@index')
 
 Route::get('/adminJatim', 'FoodJatimController@index')
 ->name('admin.indexJatim')->middleware('login_auth');
+
+Route::get('/adminRekomendasi', 'RekomendasiController@index')
+->name('admin.indexRekomendasi')->middleware('login_auth');
 
 

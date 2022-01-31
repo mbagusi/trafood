@@ -9,14 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Food Banten</title>
+    <title>Register Admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <!-- Custom styles for this template-->
     <link href="{{ url('') }}/assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -53,12 +53,23 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
+                Register
+            </div>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('addadmin.create') }}">
+                    <i class="bi bi-menu-down"></i>
+                    <span>Register Admin</span></a>
+            </li>
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
                 Form
             </div>
 
-
+            
             <!-- Nav Item - Form -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ url('form-food-banten') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Banten</span></a>
@@ -71,7 +82,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('form-food-jatim') }}">
+                <a class="nav-link" href="{{ url('form-food-jateng') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Tengah</span></a>
             </li>
@@ -94,10 +105,11 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('form-food-jatim') }}">
+                <a class="nav-link" href="{{ url('form-saran') }}">
                     <i class="bi bi-menu-down"></i>
                     <span>Kritik & Saran</span></a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -161,111 +173,82 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
+                    <a href="{{ route('login.logout') }}" style="color: white" style="float: right;">
+                        <button type="submit" class="btn text-light ml-3" style="float: right; background-color: #28251f"><i class="bi bi-power"></i>Logout</button></a>
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Admin/Food Banten/<b>Edit Data</b></h1>
+                        <h1 class="h3 mb-0 text-gray-800">Admin/<b>Tambah Data Admin</b></h1>
                     </div>
 
-                    <h5>Edit Data Food Banten</h5>
+                    <h5>Tambah Data Admin</h5>
                     @if (session()->has('pesan'))
-                        <div class="alert alert-success">
-                            {{ session()->get('pesan') }}
-                        </div>
+                    <div class="alert alert-success">
+                        {{ session()->get('pesan') }}
+                    </div>
                     @endif
 
-                        <form action="{{ route('admin.updateBanten', ['id' => $foods->id]) }}" method="POST" enctype="multipart/form-data">
-                            @method('PATCH')
-                            @csrf
-                            <div class="form-group">
-                                <label for="nama">Nama</label>
-                                <input type="text" id="nama" class="form-control @error('nama') is-invalid @enderror"
-                                    placeholder="Nama Makanan" name="nama" value="{{ old('nama') ?? $foods->nama }}">
-                                @error('nama')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="jenis">Jenis Makanan</label>
-                                <select class="form-control" name="jenis" id="jenis">
-                                    <option value="" {{ old('jenis') == '' ? 'selected' : '' }}>- Pilih Jenis Makanan
-                                    </option>
-                                    <option value="Makanan Ringan"
-                                        {{ (old('jenis') ?? $foods->jenis) == 'Makanan Ringan' ? 'selected' : '' }}>
-                                        Makanan Ringan</option>
-                                    <option value="Makanan Berat"
-                                        {{ (old('jenis') ?? $foods->jenis) == 'Makanan Berat' ? 'selected' : '' }}>
-                                        Makanan Berat</option>
-                                </select>
-                                @error('jenis')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="harga">Harga</label>
-                                <input type="text" id="harga" class="form-control @error('harga') is-invalid @enderror"
-                                    name="harga" placeholder="Harga Makanan"
-                                    value="{{ old('harga') ?? $foods->harga }}">
-                                @error('harga')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="image">Gambar</label>
-                                <br><img height="150px" src="{{ url('') }}/{{ $foods->image }}"
-                                    class="rounded" alt="">
-                                <input type="file" class="form-control-file" id="image" name="image">
-                                @error('image')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <button type="submit" class="btn btn-hover text-light"
-                                style="background-color: #28251f">Update</button>
-                        </form>
-                        <!-- /.container-fluid -->
-
-                </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Trafood.id 2022</span>
+                    <form action="{{ route('addadmin.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Username3" name="username"  value="{{ old('username') }}">
+                            @error('username')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input onkeyup='check();' type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password" name="password"  value="{{ old('password') }}">
+                            @error('password')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    
+                     
+                        <button type="submit" class="btn btn-hover text-light" style="background-color: #28251f">Submit</button>
+                    </form>			
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Trafood.id 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    </div>
+    <!-- End of Page Wrapper -->
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="{{ url('') }}/assets/vendor/jquery/jquery.min.js"></script>
-        <script src="{{ url('') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-        <!-- Core plugin JavaScript-->
-        <script src="{{ url('') }}/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url('') }}/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ url('') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="{{ url('') }}/assets/js/sb-admin-2.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ url('') }}/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="{{ url('') }}/assets/vendor/chart.js/Chart.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ url('') }}/assets/js/sb-admin-2.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="{{ url('') }}/assets/js/demo/chart-area-demo.js"></script>
-        <script src="{{ url('') }}/assets/js/demo/chart-pie-demo.js"></script>
+    <!-- Page level plugins -->
+    <script src="{{ url('') }}/assets/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ url('') }}/assets/js/demo/chart-area-demo.js"></script>
+    <script src="{{ url('') }}/assets/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

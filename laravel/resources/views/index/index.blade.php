@@ -223,61 +223,93 @@
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
-      <div class="container" data-aos="fade-up">
+   <!-- ======= Contact Section ======= -->
+   <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p style="font-family: 'Poppins', sans-serif;">Contact Us</p>
-        </div>
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Contact Us</p>
       </div>
+    </div>
 
-      <div class="container" data-aos="fade-up">
+    <div data-aos="fade-up" style="text-align: center">
+      <iframe style="border:0; width: 70%; height: 350px; border-radius: 20px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.2735402105272!2d109.24713381437269!3d-7.43495417531242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655ea49d9f9885%3A0x62be0b6159700ec9!2sInstitut%20Teknologi%20Telkom%20Purwokerto!5e0!3m2!1sid!2sid!4v1643363246179!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
 
-        <div class="row mt-5">
+    <div class="container" data-aos="fade-up">
 
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4 style="color: #CDA45E;">Location:</h4>
-                <p>Jl. DI Panjaitan No.128,
-                  Purwokerto Selatan, Banyumas,
-                  Jawa Tengah 53147</p>
+      <div class="row mt-5">
 
+        <div class="col-lg-4">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>Jl. DI Panjaitan No.128,
+                Purwokerto Selatan, Banyumas,
+                Jawa Tengah 53147</p>
+            </div>
 
-                <div class="open-hours">
-                  <i class="bi bi-clock"></i>
-                  <h4 style="color: #CDA45E;">Open Hours:</h4>
-                  <p>
-                    Senin-Sabtu:<br>
-                    10:00 AM - 12:00 PM
-                  </p>
-                </div>
-              </div>
+            <div class="open-hours">
+              <i class="bi bi-clock"></i>
+              <h4>Open Hours:</h4>
+              <p>
+                Senin-Sabtu:<br>
+                10:00 AM - 12:00 PM
+              </p>
+            </div>
 
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4 style="color: #CDA45E;">Email:</h4>
-                <p>trafoo@gmail.com</p>
-              </div>
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>trafood@gmail.com</p>
+            </div>
 
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4 style="color: #CDA45E;">Call:</h4>
-                <p>+62823456789</p>
-              </div>
-
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+62823456789</p>
             </div>
 
           </div>
 
         </div>
 
-      </div>
-    </section><!-- End Contact Section -->
+        <div class="col-lg-8 mt-5 mt-lg-0">
 
+          <h5>Kritik dan Saran :</h5>
+          <form action="{{ route('saran.saranStore') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="nama" class="form-control text-light @error('nama') is-invalid @enderror" id="nama" placeholder="Your Name" required style="background-color: transparent;" value="{{ old('nama') }}">
+                @error('nama')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control text-light @error('email') is-invalid @enderror" name="email" id="email" placeholder="Your Email" required style="background-color: transparent;" value="{{ old('email') }}">
+                @error('email')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <textarea class="form-control text-light @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi" rows="8" placeholder="Message" required style="background-color: transparent;" value="{{ old('email') }}"></textarea>
+              @error('deskripsi')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <button type="submit" class="btn text-center text-light btn-hover" style="float: right; background-color: #CDA45E">Send</button>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

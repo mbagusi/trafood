@@ -51,6 +51,17 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+             <!-- Heading -->
+             <div class="sidebar-heading">
+                Register
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('addadmin.create') }}">
+                    <i class="bi bi-menu-down"></i>
+                    <span>Register Admin</span></a>
+            </li>
+
             <!-- Heading -->
             <div class="sidebar-heading">
                 Form
@@ -80,6 +91,25 @@
                     <i class="bi bi-menu-down"></i>
                     <span>Food Jawa Timur</span></a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.indexRekomendasi') }}">
+                    <i class="bi bi-menu-down"></i>
+                    <span>Food Rekomendasi</span></a>
+            </li>
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Saran
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('form-saran') }}">
+                    <i class="bi bi-menu-down"></i>
+                    <span>Kritik & Saran</span></a>
+            </li>
+
+            
 
 
             <!-- Divider -->

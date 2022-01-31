@@ -7,6 +7,7 @@ use App\FoodBanten;
 use App\FoodJabar;
 use App\FoodJateng;
 use App\FoodJatim;
+use APP\Saran;
 
 class IndexController extends Controller
 {
