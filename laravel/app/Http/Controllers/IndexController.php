@@ -7,7 +7,7 @@ use App\FoodBanten;
 use App\FoodJabar;
 use App\FoodJateng;
 use App\FoodJatim;
-use APP\Saran;
+use App\Rekomendasi;
 
 class IndexController extends Controller
 {
@@ -16,7 +16,8 @@ class IndexController extends Controller
         $food_jabars = FoodJabar::all();
         $food_jatengs = FoodJateng::all();
         $food_jatims = FoodJatim:: all();
+        $rekomendasis = Rekomendasi:: all();
         return view('index.index', ['food_banten' => $food_bantens, 'food_jabar' => $food_jabars,
-    'food_jateng' => $food_jatengs, 'food_jatim' => $food_jatims]);
+    'food_jateng' => $food_jatengs, 'food_jatim' => $food_jatims, 'rekomendasi' => $rekomendasis]);
     }
 }

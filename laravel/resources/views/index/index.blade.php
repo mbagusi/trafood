@@ -58,7 +58,7 @@
       <nav id="navbar" class="navbar order-last order-lg-0" style="margin: auto;">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-          <li><a class="nav-link" href="{{ url('list-kategori') }}">Kategori</a></li>
+          <li><a class="nav-link" href="{{ route('food.rekomendasiShow') }}">Kategori</a></li>
           <li><a class="nav-link scrollto" href="#why-us">Tentang Kami</a></li>
 
 
@@ -278,7 +278,12 @@
 
         <div class="col-lg-8 mt-5 mt-lg-0">
 
-          <h5>Kritik dan Saran :</h5>
+          <h5 class="text-light">Kritik dan Saran :</h5>
+          @if (session()->has('pesan'))
+          <div class="alert text-light">
+              {{ session()->get('pesan') }}
+          </div>
+          @endif
           <form action="{{ route('saran.saranStore') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">

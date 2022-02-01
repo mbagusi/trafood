@@ -61,6 +61,9 @@
                     <i class="bi bi-menu-down"></i>
                     <span>Register Admin</span></a>
             </li>
+             <!-- Divider -->
+        <hr class="sidebar-divider">
+
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -97,6 +100,10 @@
                     <i class="bi bi-menu-down"></i>
                     <span>Food Rekomendasi</span></a>
             </li>
+
+             <!-- Divider -->
+        <hr class="sidebar-divider">
+
 
             <!-- Heading -->
             <div class="sidebar-heading">

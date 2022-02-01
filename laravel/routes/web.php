@@ -31,11 +31,7 @@ Route::get('/food-jateng', 'FoodJatengController@show')->name('food.jatengShow')
 
 Route::get('/food-jatim', 'FoodJatimController@show')->name('food.jatimShow');
 
-
-
-Route::get('/list-kategori', function () {
-    return view('kategori.list-kategori');
-});
+Route::get('/food-rekomendasi', 'RekomendasiController@show')->name('food.rekomendasiShow');
 
 Route::get('/detail-makanan', function () {
     return view('detail.detail-makanan');

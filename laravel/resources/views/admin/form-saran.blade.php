@@ -61,6 +61,9 @@
                     <i class="bi bi-menu-down"></i>
                     <span>Register Admin</span></a>
             </li>
+             <!-- Divider -->
+        <hr class="sidebar-divider">
+
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -98,6 +101,10 @@
                     <i class="bi bi-menu-down"></i>
                     <span>Food Rekomendasi</span></a>
             </li>
+
+             <!-- Divider -->
+        <hr class="sidebar-divider">
+
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -190,7 +197,7 @@
                     <table class="table table-hover text-light" style="background-color: #28251f" style="table-layout: fixed">
                         <thead>
                           <tr>
-                            <th scope="col">ID</th>
+                            <th style="text-align: center;" scope="col">ID</th>
                             <th style="text-align: center;" scope="col">Nama</th>
                             <th style="text-align: center" scope="col">Email</th>
                             <th style="text-align: center" scope="col" width="30px">Deskripsi</th>

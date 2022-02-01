@@ -47,7 +47,18 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+    
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Register
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('addadmin.create') }}">
+                    <i class="bi bi-menu-down"></i>
+                    <span>Register Admin</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -87,6 +98,10 @@
                     <i class="bi bi-menu-down"></i>
                     <span>Food Rekomendasi</span></a>
             </li>
+
+             <!-- Divider -->
+        <hr class="sidebar-divider">
+
             
             <!-- Heading -->
             <div class="sidebar-heading">

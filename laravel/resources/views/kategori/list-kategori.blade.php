@@ -118,70 +118,28 @@
           <h1 style="font-family: 'Poppins', sans-serif;">Rekomendasi Makanan</h1></b>
         </div>
         <div class="row" style="margin-top: 20px;">
+          @forelse ($foods as $rekomendasi)
           <div class="col">
-            <div class="card">
-              <img src=" {{ url('') }}/assets/img/mendoan.jpg" class="card-img-top" alt="...">
+            <div class="card" {{$loop->iteration}}>
+              <img src=" {{url('')}}/{{$rekomendasi->image}}" class="card-img-top" alt="...">
               <div class="card-body text-center">
-                <h5 class="card-title fw-bold" style="color: #CDA45E;">Tempe Mendoan</h5>
-                <p class="card-text fw-bold" style="color: #CDA45E;">Rp. 5000</p>
+                <h5 class="card-title fw-bold" style="color: #CDA45E;">{{$rekomendasi->nama}}</h5>
+                <p class="card-text fw-bold" style="color: #CDA45E;">Rp. {{$rekomendasi->harga}}</p>
                 <div class="d-grid gap-2 d-md-block">
                   <a class="btn btn-secondary" href="{{ url('detail-makanan') }}" role="button">Detail</a>
                   <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Beli
                   </button>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src=" {{ url('') }}/assets/img/seblak.jpg" class="card-img-top" alt="...">
-              <div class="card-body text-center">
-                <h5 class="card-title fw-bold" style="color: #CDA45E;">Seblak</h5>
-                <p class="card-text fw-bold" style="color: #CDA45E;">Rp. 10000</p>
-                <div class="d-grid gap-2 d-md-block">
-                  <a class="btn btn-secondary" href="detail.html" role="button">Detail</a>
-                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Beli
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src=" {{ url('') }}/assets/img/Soto-Betawi.jpg" class="card-img-top" alt="...">
-              <div class="card-body text-center">
-                <h5 class="card-title fw-bold" style="color: #CDA45E;">Soto Betawi</h5>
-                <p class="card-text fw-bold" style="color: #CDA45E;">Rp. 20000</p>
-                <div class="d-grid gap-2 d-md-block">
-                  <a class="btn btn-secondary" href="detail.html" role="button">Detail</a>
-                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Beli
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src=" {{ url('') }}/assets/img/rawon.jpg" class="card-img-top" alt="...">
-              <div class="card-body text-center">
-                <h5 class="card-title fw-bold" style="color: #CDA45E;">Rawon</h5>
-                <p class="card-text fw-bold" style="color: #CDA45E;">Rp. 15000</p>
-                <div class="d-grid gap-2 d-md-block">
-                  <a class="btn btn-secondary" href="detail.html" role="button">Detail</a>
-                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Beli
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
-    </section><!-- End About Section -->
-
+    </div>
+    @empty
+    <h4 style="text-align: center; color: white;">Data Tidak Ada...</h4>
+</div>
+@endforelse
+</div>
+</section>
     <!-- POP UP-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

@@ -76,7 +76,7 @@
                         <img src=" {{url('')}}/{{$food_banten->image}}" class="card-img-top" alt="...">
                         <div class="card-body text-center">
                             <h5 class="card-title fw-bold">{{$food_banten->nama}}</h5>
-                            <p class="card-text fw-bold">{{$food_banten->harga}}</p>
+                            <p class="card-text fw-bold">Rp. {{$food_banten->harga}}</p>
                             <div class="d-grid gap-2 d-md-block">
                                 <a class="btn btn-secondary" href="detail.html" role="button">Detail</a>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">

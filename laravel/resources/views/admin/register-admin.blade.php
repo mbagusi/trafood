@@ -62,6 +62,10 @@
                     <span>Register Admin</span></a>
             </li>
 
+             <!-- Divider -->
+        <hr class="sidebar-divider">
+
+
             <!-- Heading -->
             <div class="sidebar-heading">
                 Form
@@ -98,6 +102,10 @@
                     <i class="bi bi-menu-down"></i>
                     <span>Food Rekomendasi</span></a>
             </li>
+
+             <!-- Divider -->
+        <hr class="sidebar-divider">
+
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -190,7 +198,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Username3" name="username"  value="{{ old('username') }}">
+                            <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukkan Username" name="username"  value="{{ old('username') }}">
                             @error('username')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror

@@ -82,6 +82,6 @@ class RekomendasiController extends Controller
     public function show()
     {
         $rekomendasis = Rekomendasi::all();
-        return view('food.food-rekomendasi', ['foods' => $rekomendasis]);
+        return view('kategori.list-kategori', ['foods' => $rekomendasis]);
     }
 }
