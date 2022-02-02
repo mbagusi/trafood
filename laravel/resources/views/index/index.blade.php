@@ -278,7 +278,7 @@
 
         <div class="col-lg-8 mt-5 mt-lg-0">
 
-          <h5 class="text-light">Kritik dan Saran :</h5>
+          <h5 class="text-light">Kritik dan Saran :</h5> //FORM SARAN
           @if (session()->has('pesan'))
           <div class="alert text-light">
               {{ session()->get('pesan') }}
