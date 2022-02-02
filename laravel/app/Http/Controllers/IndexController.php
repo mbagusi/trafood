@@ -16,8 +16,8 @@ class IndexController extends Controller
         $food_jabars = FoodJabar::all();
         $food_jatengs = FoodJateng::all();
         $food_jatims = FoodJatim:: all();
-        $rekomendasis = Rekomendasi:: all();
+        $rekomendasis = Rekomendasi:: all(); //tambahan
         return view('index.index', ['food_banten' => $food_bantens, 'food_jabar' => $food_jabars,
-    'food_jateng' => $food_jatengs, 'food_jatim' => $food_jatims, 'rekomendasi' => $rekomendasis]);
+    'food_jateng' => $food_jatengs, 'food_jatim' => $food_jatims, 'rekomendasi' => $rekomendasis]); //tambahan
     }
 }
