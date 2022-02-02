@@ -18,10 +18,10 @@ Route::get('/', 'IndexController@show')->name('index.index');
 Route::get('/', 'SaranController@create')->name('saran.saranCreate');
 Route::post('postSaran', 'SaranController@store')->name('saran.saranStore');
 Route::get('/form-saran', 'SaranController@show')->name('saran.saranShow')->middleware('login_auth');
-Route::delete('/adminSaran/{id}', 'SaranController@destroy')->name('admin.destroySaran')->middleware('login_auth');
+Route::delete('/adminSaran/{id}', 'SaranController@destroy')->name('admin.destroySaran')->middleware('login_auth'); //Saran Controller
 
 Route::get('/adduser', 'RegisterAdminController@create')->name('addadmin.create')->middleware('login_auth');
-Route::post('/adduser', 'RegisterAdminController@store') ->name('addadmin.store')->middleware('login_auth');
+Route::post('/adduser', 'RegisterAdminController@store') ->name('addadmin.store')->middleware('login_auth'); //add user admin
 
 Route::get('/food-banten', 'FoodBantenController@show')->name('food.bantenShow');
 
@@ -31,7 +31,7 @@ Route::get('/food-jateng', 'FoodJatengController@show')->name('food.jatengShow')
 
 Route::get('/food-jatim', 'FoodJatimController@show')->name('food.jatimShow');
 
-Route::get('/food-rekomendasi', 'RekomendasiController@show')->name('food.rekomendasiShow');
+Route::get('/food-rekomendasi', 'RekomendasiController@show')->name('food.rekomendasiShow'); //show Rekomendasi
 
 Route::get('/detail-makanan', function () {
     return view('detail.detail-makanan');
